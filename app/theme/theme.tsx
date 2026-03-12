@@ -1,7 +1,10 @@
 ﻿import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import { useColorScheme } from 'react-native';
 
-export type ThemeMode = 'light' | 'dark';
+export enum ThemeMode {
+  Light = 'light',
+  Dark = 'dark',
+}
 
 type ThemeContextValue = {
   mode: ThemeMode;
@@ -14,11 +17,13 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const systemScheme = useColorScheme();
   const [mode, setMode] = useState<ThemeMode>(
-    systemScheme === 'dark' ? 'dark' : 'light'
+    systemScheme === 'dark' ? ThemeMode.Dark : ThemeMode.Light
   );
 
   const toggleMode = useCallback(() => {
-    setMode((current) => (current === 'dark' ? 'light' : 'dark'));
+    setMode((current) =>
+      current === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark
+    );
   }, []);
 
   const value = useMemo(

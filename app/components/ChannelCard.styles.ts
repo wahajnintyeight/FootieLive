@@ -1,0 +1,85 @@
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+  card: {
+    width: 280,
+    height: 200,
+    borderRadius: 20,
+    overflow: 'hidden',
+    borderWidth: 1.5,
+    shadowOpacity: 0.15,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 8,
+  },
+  imageContainer: {
+    width: '100%',
+    height: 140,
+    position: 'relative',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  imageOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+  badge: {
+    position: 'absolute',
+    top: 12,
+    left: 12,
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 4,
+  },
+  badgeDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+  },
+  badgeText: {
+    fontSize: 11,
+    fontWeight: '800',
+    letterSpacing: 1,
+    color: '#F5F7F0',
+  },
+  footer: {
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    gap: 6,
+    flex: 1,
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: '700',
+    lineHeight: 20,
+    letterSpacing: -0.2,
+  },
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  subtitle: {
+    fontSize: 12,
+    fontWeight: '500',
+    letterSpacing: 0.2,
+  },
+  dot: {
+    width: 3,
+    height: 3,
+    borderRadius: 1.5,
+  },
+});

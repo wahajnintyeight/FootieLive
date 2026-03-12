@@ -1,0 +1,75 @@
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+  card: {
+    width: '100%',
+    height: 140,
+    borderRadius: 16,
+    overflow: 'hidden',
+    borderWidth: 1.5,
+    shadowOpacity: 0.12,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 6,
+  },
+  imageContainer: {
+    width: '100%',
+    height: 90,
+    position: 'relative',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  imageOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+  badge: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    borderRadius: 999,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
+  },
+  badgeDot: {
+    width: 4,
+    height: 4,
+    borderRadius: 2,
+  },
+  badgeText: {
+    fontSize: 9,
+    fontWeight: '800',
+    letterSpacing: 0.8,
+    color: '#F5F7F0',
+  },
+  footer: {
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    flex: 1,
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 16,
+    letterSpacing: -0.1,
+  },
+  subtitle: {
+    fontSize: 10,
+    fontWeight: '500',
+    letterSpacing: 0.1,
+    marginTop: 2,
+  },
+});

@@ -1,5 +1,6 @@
 ﻿import React, { useCallback } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
+import { Box } from '@gluestack-ui/themed';
 import type { Channel } from '../data/channels';
 import { ChannelCard } from './ChannelCard';
 
@@ -23,6 +24,7 @@ export function ChannelSlider({ channels, onSelect }: ChannelSliderProps) {
       renderItem={renderItem}
       horizontal
       showsHorizontalScrollIndicator={false}
+      ItemSeparatorComponent={() => <Box style={styles.separator} />}
       contentContainerStyle={styles.listContent}
     />
   );
@@ -31,6 +33,9 @@ export function ChannelSlider({ channels, onSelect }: ChannelSliderProps) {
 const styles = StyleSheet.create({
   listContent: {
     paddingHorizontal: 16,
-    gap: 16,
+    paddingVertical: 4,
+  },
+  separator: {
+    width: 16,
   },
 });

@@ -1,45 +1,45 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+﻿import React from 'react';
+import { StatusBar, StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { enableScreens } from 'react-native-screens';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
+import { config } from '@gluestack-ui/config';
+import { ThemeMode, ThemeProvider, useThemeController } from './app/theme/theme';
+import { AppNavigator } from './app/navigation/AppNavigator';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+enableScreens();
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+function AppShell() {
+  const { mode } = useThemeController();
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <GluestackUIProvider config={config} mode={mode}>
+      <StatusBar
+        barStyle={mode === ThemeMode.Dark ? 'light-content' : 'dark-content'}
+      />
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    </GluestackUIProvider>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
+export default function App() {
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <GestureHandlerRootView style={styles.root}>
+      <SafeAreaProvider>
+        <ThemeProvider>
+          <AppShell />
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
   },
 });
-
-export default App;
